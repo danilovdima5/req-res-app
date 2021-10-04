@@ -1,0 +1,21 @@
+<div class="page" id="homePage">
+  <div class="content" id="resourcesHere">
+    <div *ngFor="let resource of resourcesList" class="resourceCard">
+      <p [ngStyle]="{ 'text-align': 'center', color: resource.color }">
+        {{ resource.name }}: {{ resource.year }}
+      </p>
+    </div>
+  </div>
+  <div id="verticalLine"></div>
+  <div class="content" id="usersHere">
+    <div
+      *ngFor="let user of usersList"
+      class="userCard"
+      id="{{ user.id }}"
+      routerLink="user/{{ user.id }}"
+    >
+      <img src="{{ user.avatar }}" />
+      <p>{{ user.first_name }} {{ user.last_name }}</p>
+    </div>
+  </div>
+</div>

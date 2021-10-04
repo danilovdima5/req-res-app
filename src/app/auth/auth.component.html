@@ -1,0 +1,107 @@
+<div
+  class="page"
+  [ngStyle]="{ 'flex-wrap': 'wrap', 'justify-content': 'space-evenly' }"
+>
+  <form [formGroup]="signInForm" (ngSubmit)="trySignIn()">
+    <h2>SignIn</h2>
+
+    <section class="authInputs">
+      <label for="emailSignIn">
+        <input
+          id="emailSignIn"
+          type="text"
+          formControlName="emailSignIn"
+          placeholder="E-mail"
+          [ngClass]="{
+            invalidInput:
+              emailSignIn && emailSignIn.invalid && emailSignIn.touched
+          }"
+        />
+        <span>E-mail</span>
+      </label>
+      <div
+        *ngIf="emailSignIn && emailSignIn.invalid && emailSignIn.touched"
+        class="invalidText"
+      >
+        <div *ngIf="emailSignIn.errors?.required">E-mail is required</div>
+        <div *ngIf="emailSignIn.errors?.email">E-mail is incorrect</div>
+      </div>
+
+      <label for="passwordSignIn">
+        <input
+          id="passwordSignIn"
+          type="password"
+          formControlName="passwordSignIn"
+          placeholder="Password"
+          [ngClass]="{
+            invalidInput:
+              passwordSignIn && passwordSignIn.invalid && passwordSignIn.touched
+          }"
+        />
+        <span>Password</span>
+      </label>
+      <div
+        *ngIf="
+          passwordSignIn && passwordSignIn.invalid && passwordSignIn.touched
+        "
+        class="invalidText"
+      >
+        <div *ngIf="passwordSignIn.errors?.required">Password is required</div>
+      </div>
+      <input
+        type="submit"
+        value="Sign In"
+        [disabled]="signInForm.invalid || signInForm.disabled"
+      />
+    </section>
+  </form>
+
+  <form [formGroup]="signUpForm" (ngSubmit)="trySignUp()">
+    <h2>SignUp</h2>
+    <section class="authInputs">
+      <label for="emailSignUp">
+        <input
+          id="emailSignUp"
+          type="text"
+          formControlName="emailSignUp"
+          placeholder="E-mail"
+          [ngClass]="{
+            invalidInput:
+              emailSignUp && emailSignUp.invalid && emailSignUp.touched
+          }"
+        />
+        <span>E-mail</span>
+      </label>
+      <div
+        *ngIf="emailSignUp && emailSignUp.invalid && emailSignUp.touched"
+        class="invalidText"
+      >
+        <div *ngIf="emailSignUp.errors?.required">E-mail is required</div>
+        <div *ngIf="emailSignUp.errors?.email">E-mail is incorrect</div>
+      </div>
+
+      <label for="passwordSignUp">
+        <input
+          id="passwordSignUp"
+          type="password"
+          formControlName="passwordSignUp"
+          placeholder="Password"
+        />
+        <span>Password</span>
+      </label>
+      <div
+        *ngIf="
+          passwordSignUp && passwordSignUp.invalid && passwordSignUp.touched
+        "
+        class="invalidText"
+      >
+        <div *ngIf="passwordSignUp.errors?.required">Password is required</div>
+      </div>
+      <input
+        type="submit"
+        value="Sign Up"
+        [disabled]="signUpForm.invalid || signUpForm.disabled"
+      />
+    </section>
+  </form>
+</div>

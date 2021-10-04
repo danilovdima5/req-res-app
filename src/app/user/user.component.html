@@ -1,0 +1,65 @@
+<div class="page" id="userPage" [ngStyle]="{ 'justify-content': 'center' }">
+  <div class="lds-ring" id="loader" *ngIf="notLoaded">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <form class="formContainer">
+    <img src="{{ imgUrl }}" />
+    <label for="firstName">
+      <input
+        id="firstName"
+        type="text"
+        placeholder="First name"
+        [(ngModel)]="firstName"
+        value="{{ firstName }}"
+        name="firstName"
+      />
+      <span>First name</span>
+    </label>
+
+    <label for="lastName">
+      <input
+        id="lastName"
+        type="text"
+        placeholder="Last name"
+        [(ngModel)]="lastName"
+        value="{{ lastName }}"
+        name="lastName"
+      />
+      <span>Last name</span>
+    </label>
+
+    <label for="E-mail">
+      <input
+        id="emailChange"
+        type="text"
+        placeholder="E-mail"
+        [(ngModel)]="email"
+        value="{{ email }}"
+        name="email"
+      />
+      <span>E-mail</span>
+    </label>
+
+    <label for="job">
+      <input
+        id="job"
+        type="text"
+        placeholder="Job"
+        [(ngModel)]="job"
+        name="job"
+      />
+      <span>Job</span>
+    </label>
+
+    <input type="submit" value="UPDATE" (click)="tryUpdate()" />
+    <button
+      (click)="tryRemove()"
+      [ngStyle]="{ width: '80%', background: 'red' }"
+    >
+      REMOVE
+    </button>
+  </form>
+</div>

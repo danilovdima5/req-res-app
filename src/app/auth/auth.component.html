@@ -48,11 +48,7 @@
       >
         <div *ngIf="passwordSignIn.errors?.required">Password is required</div>
       </div>
-      <input
-        type="submit"
-        value="Sign In"
-        [disabled]="signInForm.invalid || signInForm.disabled"
-      />
+      <input type="submit" value="Sign In" [disabled]="signInForm.invalid" />
     </section>
   </form>
 
@@ -97,11 +93,7 @@
       >
         <div *ngIf="passwordSignUp.errors?.required">Password is required</div>
       </div>
-      <input
-        type="submit"
-        value="Sign Up"
-        [disabled]="signUpForm.invalid || signUpForm.disabled"
-      />
+      <input type="submit" value="Sign Up" [disabled]="signUpForm.invalid" />
     </section>
   </form>
 </div>

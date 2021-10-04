@@ -43,9 +43,11 @@ input {
   border-bottom: 1px solid #000;
   margin-top: 5px;
 }
+
 input::placeholder {
   opacity: 0;
 }
+
 span {
   position: absolute;
   top: 0;

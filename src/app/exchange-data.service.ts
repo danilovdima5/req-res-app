@@ -13,7 +13,6 @@ export class ExchangeDataService {
   getData(link: string, where: any[]): void {
     this.http.get(link).subscribe(
       (response: any) => {
-        console.log(response);
         response.data.forEach((particle: object) => {
           where.push(particle);
         });
@@ -28,7 +27,6 @@ export class ExchangeDataService {
     this.http.post(link, body).subscribe(
       (response: any) => {
         if (signIn) {
-          console.log(response);
           M.toast({ html: 'Signed in successfully' });
           sessionStorage.setItem('token', response.token);
           this.router.navigate(['home']);

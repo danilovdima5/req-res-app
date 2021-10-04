@@ -39,7 +39,6 @@ export class AuthComponent implements OnInit {
   }
 
   trySignIn(): void {
-    this.signInForm.disable();
     const body: object = {
       email: this.signInForm.value.emailSignIn,
       password: this.signInForm.value.passwordSignIn,
